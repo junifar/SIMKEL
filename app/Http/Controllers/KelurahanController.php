@@ -36,7 +36,7 @@ class KelurahanController extends Controller
     }
 
     public function getKelurahan(Request $request){
-        return Datatables::of(Kelurahan::take(30000)->get())
+        return Datatables::of(Kelurahan::take(50000)->get())
             ->addColumn('action', function($data){
                 return '<a href="/kelurahan/edit/'.$data->id .'" class="btn btn-primary">
                 <i class="glyphicon glyphicon-edit"> Edit</a>';
