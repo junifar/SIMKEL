@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/kelurahan','KelurahanController@index');
 Route::get('/kelurahan/view', 'KelurahanController@view');
+Route::get('/kelurahan/view-data', 'KelurahanController@getKelurahan');
 Route::get('/kelurahan/add', 'KelurahanController@insert');
 Route::get('/kelurahan/edit/{id}', 'KelurahanController@edit');
 Route::post('/kelurahan/save', 'KelurahanController@save');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use kelurahan\Kelurahan;
+use Yajra\Datatables\Facades\Datatables;
 
 class KelurahanController extends Controller
 {
@@ -31,8 +32,16 @@ class KelurahanController extends Controller
     }
 
     public function view(){
-        $datas = Kelurahan::paginate(5);
-        return view('kelurahan.view',compact('datas'));
+        return view('kelurahan.view');
+    }
+
+    public function getKelurahan(Request $request){
+        return Datatables::of(Kelurahan::take(30000)->get())
+            ->addColumn('action', function($data){
+                return '<a href="/kelurahan/edit/'.$data->id .'" class="btn btn-primary">
+                <i class="glyphicon glyphicon-edit"> Edit</a>';
+            })
+            ->make(true);
     }
 
     public function edit($id){
