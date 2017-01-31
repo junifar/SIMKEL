@@ -12,7 +12,7 @@
 
 @section('content')
     <section class="content">
-        <div clas="row">
+        <div class="row">
             <div class="col-md-12">
                 <table class="display compact row-border stripe" cellspacing="0" width="100%" id="kelurahan-table">
                     <thead>
@@ -38,6 +38,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: '{{ url('/kelurahan/view-data') }}',
+                stateSave: true,
                 columns: [
                     { data: 'name', name: 'name' },
                     { data: 'lurah', name: 'lurah' },
