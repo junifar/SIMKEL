@@ -118,7 +118,9 @@
                                                 <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-warga-table">
                                                     <thead>
                                                     <tr>
-                                                        <th>Nomor RW</th>
+                                                        <th>RW</th>
+                                                        <th>Nama RW</th>
+                                                        <th>Telp</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
@@ -148,9 +150,11 @@
                 "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
             },
             serverSide: true,
-            ajax: '{{ url('/rukunwarga/data') }}',
+            ajax: '{{ url('administration/kelurahan/data-rukunwarga/'.$data->id) }}',
             stateSave: true,
             columns: [
+                { data: 'name', name: 'name' },
+                { data: 'name', name: 'name' },
                 { data: 'name', name: 'name' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
             ]

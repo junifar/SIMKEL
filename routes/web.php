@@ -39,6 +39,8 @@ Route::post('/rukuntetangga/update/{id}','RukunTetanggaController@update');
 
 Route::get('/administration/kelurahan', 'AdministrationController@kelurahan');
 Route::get('/administration/kelurahan/data', 'AdministrationController@kelurahandata');
+Route::get('/administration/kelurahan/data-rukunwarga/{id}', 'AdministrationController@rukunwargadata');
+
 Route::get('/administration/kelurahan/view/{id}', 'AdministrationController@kelurahanview');
 
 Auth::routes();
