@@ -4,16 +4,15 @@
     <li class="header">Your Action</li>
     <li class=" active treeview">
         <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Administrasi</span>
             <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a>
-            </li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="/administration/kelurahan"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
+            <li><a href="/administration/rukunwarga"><i class="fa fa-circle-o"></i> Rukun Warga</a></li>
+            <li><a href="/administration/rukuntetangga"><i class="fa fa-circle-o"></i> Rukun Tetangga</a></li>
         </ul>
     </li>
     <li class="treeview">

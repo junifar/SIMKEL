@@ -37,6 +37,10 @@ Route::post('/rukuntetangga/save','RukunTetanggaController@store');
 Route::get('/rukuntetangga/edit/{id}','RukunTetanggaController@edit');
 Route::post('/rukuntetangga/update/{id}','RukunTetanggaController@update');
 
+Route::get('/administration/kelurahan', 'AdministrationController@kelurahan');
+Route::get('/administration/kelurahan/data', 'AdministrationController@kelurahandata');
+Route::get('/administration/kelurahan/view/{id}', 'AdministrationController@kelurahanview');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
