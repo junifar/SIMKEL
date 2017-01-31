@@ -1,4 +1,14 @@
 @extends('layouts/kelurahan')
+@section('header')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.jqueryui.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.jqueryui.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+@endsection
+
 @section('content')
     <section class="content">
         <div clas="row">
@@ -95,13 +105,28 @@
                                 </div>
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane" id="tab_2-2">
-                                    The European languages are members of the same family. Their separate existence is a myth.
-                                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                                    new common language would be desirable: one could refuse to pay expensive translators. To
-                                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                                    words. If several languages coalesce, the grammar of the resulting language is more simple
-                                    and regular than that of the individual languages.
+                                    <section class="content-header">
+                                        <h1>
+                                            Rukun Warga / RW
+                                            <small>List data</small>
+                                            <a href="/rukunwarga/add" class="btn btn-primary pull-right">New Data</a>
+                                        </h1>
+                                    </section>
+                                    <section class="content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-warga-table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Nomor RW</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
                                 <!-- /.tab-pane -->
                             </div>
@@ -113,3 +138,23 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $('#rukun-warga-table').DataTable({
+            processing: true,
+            "language":{
+                "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
+            },
+            serverSide: true,
+            ajax: '{{ url('/rukunwarga/data') }}',
+            stateSave: true,
+            columns: [
+                { data: 'name', name: 'name' },
+                { data: 'action', name: 'action', orderable: false, searchable: false}
+            ]
+        });
+    });
+</script>
+@endpush
