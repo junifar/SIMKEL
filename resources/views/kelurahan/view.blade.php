@@ -36,6 +36,9 @@
     $(document).ready(function(){
        $('#kelurahan-table').DataTable({
                 processing: true,
+               "language":{
+                   "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
+               },
                 serverSide: true,
                 ajax: '{{ url('/kelurahan/view-data') }}',
                 stateSave: true,
