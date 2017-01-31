@@ -2,8 +2,10 @@
 
 namespace kelurahan\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use kelurahan\RukunWarga;
+use Yajra\Datatables\Facades\Datatables;
 
 class RukunWargaController extends Controller
 {
@@ -14,8 +16,18 @@ class RukunWargaController extends Controller
      */
     public function index()
     {
-        $datas = RukunWarga::paginate(10);
-        return view('rukunwarga.index', compact('datas'));
+//        $datas = RukunWarga::paginate(10);
+//        return view('rukunwarga.index', compact('datas'));
+        return view('rukunwarga.index');
+    }
+
+    public function indexdata(){
+        return Datatables::of(RukunWarga::take(30000)->get())
+            ->addColumn('action', function($data){
+                return '<a href="/rukunwarga/edit/'.$data->id .'" class="btn btn-primary">
+                <i class="glyphicon glyphicon-edit"> Edit</a>';
+            })
+            ->make(true);
     }
 
     /**
@@ -26,6 +38,7 @@ class RukunWargaController extends Controller
     public function create()
     {
         //
+        return view('rukunwarga.create');
     }
 
     /**
@@ -36,7 +49,18 @@ class RukunWargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+
+            $data = new RukunWarga();
+            $data['name'] = $request->get('name');
+            $data->save();
+            \Session::flash('flash_message','Data Created');
+        }catch (QueryException $e){
+            if($e->getCode() == 23000){
+                \Session::flash('flash_message','Data not saved, duplicate entry');
+            }
+        }
+        return redirect('/rukunwarga');
     }
 
     /**
@@ -59,6 +83,7 @@ class RukunWargaController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**

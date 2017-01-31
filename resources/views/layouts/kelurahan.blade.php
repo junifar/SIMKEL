@@ -269,29 +269,15 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @if (Session::has('flash_message'))
-            <br/>
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {{ Session::get('flash_message')  }}
+            <div class="col-md-12">
+                <br/>
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ Session::get('flash_message')  }}
+                </div>
             </div>
         @endif
         @yield('content')
-        {{--<!-- Content Header (Page header) -->--}}
-        {{--<section class="content-header">--}}
-            {{--<h1>--}}
-                {{--Dashboard--}}
-                {{--<small>Control panel</small>--}}
-            {{--</h1>--}}
-            {{--<ol class="breadcrumb">--}}
-                {{--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>--}}
-                {{--<li class="active">Dashboard</li>--}}
-            {{--</ol>--}}
-        {{--</section>--}}
-
-        {{--<!-- Main content -->--}}
-        {{--<section class="content">--}}
-        {{--</section>--}}
-        {{--<!-- /.content -->--}}
     </div>
 
     <!-- /.content-wrapper -->

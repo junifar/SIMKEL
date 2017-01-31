@@ -17,14 +17,16 @@ Route::get('/', function () {
 
 Route::get('/kelurahan','KelurahanController@index');
 Route::get('/kelurahan/view', 'KelurahanController@view');
-Route::get('/kelurahan/view-data', 'KelurahanController@getKelurahan');
+Route::get('/kelurahan/view/data', 'KelurahanController@getKelurahan');
 Route::get('/kelurahan/add', 'KelurahanController@insert');
 Route::get('/kelurahan/edit/{id}', 'KelurahanController@edit');
 Route::post('/kelurahan/save', 'KelurahanController@save');
 Route::post('/kelurahan/update/{id}', 'KelurahanController@update');
 
 Route::get('/rukunwarga','RukunWargaController@index');
-Route::get('/rukunwarga/add','RukunWargaController@insert');
+Route::get('/rukunwarga/data','RukunWargaController@indexdata');
+Route::get('/rukunwarga/add','RukunWargaController@create');
+Route::post('/rukunwarga/save','RukunWargaController@store');
 Route::get('/rukunwarga/edit/{id}','RukunWargaController@edit');
 
 Auth::routes();

@@ -47,7 +47,7 @@
                "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
             },
             serverSide: true,
-            ajax: '{{ url('/kelurahan/view-data') }}',
+            ajax: '{{ url('/kelurahan/view/data') }}',
             stateSave: true,
             columns: [
                 { data: 'name', name: 'name' },
