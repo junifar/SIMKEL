@@ -45,6 +45,19 @@ class KelurahanController extends Controller
             ->make(true);
     }
 
+    public function viewdetail(){
+        return view('kelurahan.view_detail');
+    }
+
+    public function viewdetaildata(){
+        return Datatables::of(Kelurahan::take(10000)->get())
+            ->addColumn('action', function($data){
+                return '<a href="/kelurahan/detail/'.$data->id .'" class="btn btn-primary">
+                <i class="glyphicon glyphicon-list-alt"> View</a>';
+            })
+            ->make(true);
+    }
+
     public function edit($id){
         $data = Kelurahan::find($id);
         return view('kelurahan.edit',compact('data'));
@@ -61,5 +74,10 @@ class KelurahanController extends Controller
         \Session::flash('flash_message','Data Update Succesfull');
         $urlx = 'kelurahan/view';
         return redirect($urlx);
+    }
+
+    public function show($id){
+        $data = Kelurahan::find($id);
+        return view('kelurahan.show', compact('data'));
     }
 }

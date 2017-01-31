@@ -15,7 +15,9 @@ class CreateRukunWargasTable extends Migration
     {
         Schema::create('rukun_wargas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->integer('kelurahan_id');
+            $table->unique(array('name', 'kelurahan_id'));
             $table->timestamps();
         });
     }

@@ -22,6 +22,9 @@ Route::get('/kelurahan/add', 'KelurahanController@insert');
 Route::get('/kelurahan/edit/{id}', 'KelurahanController@edit');
 Route::post('/kelurahan/save', 'KelurahanController@save');
 Route::post('/kelurahan/update/{id}', 'KelurahanController@update');
+Route::get('/kelurahan/view/detail','KelurahanController@viewdetail');
+Route::get('/kelurahan/view/detail/data','KelurahanController@viewdetaildata');
+Route::get('/kelurahan/detail/{id}','KelurahanController@show');
 
 Route::get('/rukunwarga','RukunWargaController@index');
 Route::get('/rukunwarga/data','RukunWargaController@indexdata');

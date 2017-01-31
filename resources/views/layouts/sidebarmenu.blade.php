@@ -10,7 +10,7 @@
                         </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="/administration/kelurahan"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
+            <li><a href="/kelurahan/view/detail"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
             <li><a href="/administration/rukunwarga"><i class="fa fa-circle-o"></i> Rukun Warga</a></li>
             <li><a href="/administration/rukuntetangga"><i class="fa fa-circle-o"></i> Rukun Tetangga</a></li>
         </ul>
