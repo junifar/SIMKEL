@@ -15,10 +15,9 @@ class CreateRukunTetanggasTable extends Migration
     {
         Schema::create('rukun_tetanggas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rukun_tetangga_id');
             $table->string('name');
             $table->timestamps();
-            $table->unique(array('rukun_tetangga_id', 'name'));
+            $table->unique(array('name'));
         });
     }
 

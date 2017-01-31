@@ -30,6 +30,13 @@ Route::post('/rukunwarga/save','RukunWargaController@store');
 Route::get('/rukunwarga/edit/{id}','RukunWargaController@edit');
 Route::post('/rukunwarga/update/{id}','RukunWargaController@update');
 
+Route::get('/rukuntetangga','RukunTetanggaController@index');
+Route::get('/rukuntetangga/data','RukunTetanggaController@indexdata');
+Route::get('/rukuntetangga/add','RukunTetanggaController@create');
+Route::post('/rukuntetangga/save','RukunTetanggaController@store');
+Route::get('/rukuntetangga/edit/{id}','RukunTetanggaController@edit');
+Route::post('/rukuntetangga/update/{id}','RukunTetanggaController@update');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

@@ -13,18 +13,18 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Rukun Warga / RW
+            Rukun Tetangga / RT
             <small>List data</small>
-            <a href="/rukunwarga/add" class="btn btn-primary pull-right">New Data</a>
+            <a href="/rukuntetangga/add" class="btn btn-primary pull-right">New Data</a>
         </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-warga-table">
+                <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-tetangga-table">
                     <thead>
                     <tr>
-                        <th>Nomor RW</th>
+                        <th>Nomor RT</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -38,13 +38,13 @@
 @push('scripts')
 <script>
     $(document).ready(function(){
-        $('#rukun-warga-table').DataTable({
+        $('#rukun-tetangga-table').DataTable({
             processing: true,
             "language":{
                 "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
             },
             serverSide: true,
-            ajax: '{{ url('/rukunwarga/data') }}',
+            ajax: '{{ url('/rukuntetangga/data') }}',
             stateSave: true,
             columns: [
                 { data: 'name', name: 'name' },
