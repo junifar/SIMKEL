@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use kelurahan\Kelurahan;
+use Symfony\Component\VarDumper\Cloner\Data;
 use Yajra\Datatables\Facades\Datatables;
 
 class KelurahanController extends Controller
@@ -36,7 +37,7 @@ class KelurahanController extends Controller
     }
 
     public function getKelurahan(Request $request){
-        return Datatables::of(Kelurahan::take(30000)->get())
+        return Datatables::of(Kelurahan::take(50000)->get())
             ->addColumn('action', function($data){
                 return '<a href="/kelurahan/edit/'.$data->id .'" class="btn btn-primary">
                 <i class="glyphicon glyphicon-edit"> Edit</a>';
