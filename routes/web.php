@@ -28,6 +28,7 @@ Route::get('/rukunwarga/data','RukunWargaController@indexdata');
 Route::get('/rukunwarga/add','RukunWargaController@create');
 Route::post('/rukunwarga/save','RukunWargaController@store');
 Route::get('/rukunwarga/edit/{id}','RukunWargaController@edit');
+Route::post('/rukunwarga/update/{id}','RukunWargaController@update');
 
 Auth::routes();
 

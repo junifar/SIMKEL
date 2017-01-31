@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Input Kelurahan</h3>
+                        <h3 class="box-title">Edit Kelurahan</h3>
                     </div>
                     {!! Form::open(['url' => array('kelurahan/update', $data->id), 'id' => 'editForm', 'class' => 'form-horizontal']) !!}
                     <div class="box-body">

@@ -82,7 +82,8 @@ class RukunWargaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = RukunWarga::find($id);
+        return view('rukunwarga.edit',compact('data'));
 
     }
 
@@ -95,7 +96,20 @@ class RukunWargaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $data = RukunWarga::find($id);
+            $data['name'] = $request->get('name');
+            $data->save();
+
+            \Session::flash('flash_message','Data Update Succesfull');
+
+        }catch (QueryException $e){
+            if($e->getCode() == 23000){
+                \Session::flash('flash_message','Data not saved, duplicate entry');
+            }
+        }
+        $urlx = 'rukunwarga';
+        return redirect($urlx);
     }
 
     /**
