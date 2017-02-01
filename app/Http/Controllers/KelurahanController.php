@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use kelurahan\Kelurahan;
+use kelurahan\RukunWarga;
 use Symfony\Component\VarDumper\Cloner\Data;
 use Yajra\Datatables\Facades\Datatables;
 
@@ -79,5 +80,14 @@ class KelurahanController extends Controller
     public function show($id){
         $data = Kelurahan::find($id);
         return view('kelurahan.show', compact('data'));
+    }
+
+    public function showdata($id){
+        return Datatables::of(RukunWarga::where('kelurahan_id','=',$id)->take(30000)->get())
+            ->addColumn('action', function($data){
+                return '<a href="/administration/kelurahan/view/'.$data->id .'" class="btn btn-primary">
+                <i class="glyphicon glyphicon-list-alt"> View</a>';
+            })
+            ->make(true);
     }
 }

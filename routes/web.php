@@ -25,6 +25,7 @@ Route::post('/kelurahan/update/{id}', 'KelurahanController@update');
 Route::get('/kelurahan/view/detail','KelurahanController@viewdetail');
 Route::get('/kelurahan/view/detail/data','KelurahanController@viewdetaildata');
 Route::get('/kelurahan/detail/{id}','KelurahanController@show');
+Route::get('/kelurahan/detail/{id}/data','KelurahanController@showdata');
 
 Route::get('/rukunwarga','RukunWargaController@index');
 Route::get('/rukunwarga/data','RukunWargaController@indexdata');

@@ -69,71 +69,30 @@
                         <h3 class="box-title">Detail Information</h3>
                     </div>
                     <div class="box-body">
-                        <div class="nav-tabs-custom">
-                            <ul class="nav nav-tabs pull-right">
-                                <li class="active"><a href="#tab_1-1" data-toggle="tab">General</a></li>
-                                <li><a href="#tab_2-2" data-toggle="tab">Rukun Warga</a></li>
-                                <li class="pull-left header"><i class="fa fa-th"></i> Info </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1-1">
-                                    <div class="row">
+                        <section class="content-header">
+                            <h1>
+                                Rukun Warga / RW
+                                <small>List data</small>
+                                <a href="/rukunwarga/add" class="btn btn-primary pull-right">New Data</a>
+                            </h1>
+                        </section>
+                        <section class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-warga-table">
+                                        <thead>
+                                        <tr>
+                                            <th>RW</th>
+                                            <th>Nama RW</th>
+                                            <th>Telp</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
 
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <div class="box">
-                                                <div class="box-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>Summary</th>
-                                                            <th>RW</th>
-                                                            <th>RT</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>Total</td>
-                                                            <td>15</td>
-                                                            <td>150</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <!-- /.tab-pane -->
-                                <div class="tab-pane" id="tab_2-2">
-                                    <section class="content-header">
-                                        <h1>
-                                            Rukun Warga / RW
-                                            <small>List data</small>
-                                            <a href="/rukunwarga/add" class="btn btn-primary pull-right">New Data</a>
-                                        </h1>
-                                    </section>
-                                    <section class="content">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table class="display compact row-border stripe" cellspacing="0" width="100%" id="rukun-warga-table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>RW</th>
-                                                        <th>Nama RW</th>
-                                                        <th>Telp</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                                <!-- /.tab-pane -->
                             </div>
-                            <!-- /.tab-content -->
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -150,7 +109,7 @@
                 "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
             },
             serverSide: true,
-            ajax: '{{ url('administration/kelurahan/data-rukunwarga/'.$data->id) }}',
+            ajax: '{{ url('/kelurahan/detail/'.$data->id.'/data/') }}',
             stateSave: true,
             columns: [
                 { data: 'name', name: 'name' },
