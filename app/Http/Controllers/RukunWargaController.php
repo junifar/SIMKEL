@@ -22,6 +22,7 @@ class RukunWargaController extends Controller
     }
 
     public function indexdata(){
+//        return Datatables::of(RukunWarga::with('kelurahan'))->take(1)->get()->make();
         return Datatables::of(RukunWarga::take(30000)->get())
             ->addColumn('action', function($data){
                 return '<a href="/rukunwarga/edit/'.$data->id .'" class="btn btn-primary">
