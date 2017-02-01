@@ -1,12 +1,20 @@
 @extends('layouts/kelurahan')
 @section('header')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.jqueryui.min.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.jqueryui.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.jqueryui.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.1/css/select.jqueryui.min.css"/>
+    <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.jqueryui.min.css"/>
 
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.jqueryui.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.jqueryui.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+    <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+    <script src="https://editor.datatables.net/extensions/Editor/js/editor.jqueryui.min.js"></script>
+
 @endsection
 
 @section('content')
@@ -102,8 +110,15 @@
 
 @push('scripts')
 <script>
+    $.fn.dataTable.ext.buttons.alert = {
+        className: 'buttons-alert',
+
+        action: function ( e, dt, node, config ) {
+            alert( this.text() );
+        }
+    };
     $(document).ready(function(){
-        $('#rukun-warga-table').DataTable({
+        var table = $('#rukun-warga-table').DataTable({
             processing: true,
             "language":{
                 "processing": '<img src="{{ url('/images/ajax-loader.gif') }}"/><br/>Load Data...',
@@ -116,8 +131,29 @@
                 { data: 'name', name: 'name' },
                 { data: 'name', name: 'name' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
+            ],
+            select: true,
+            lengthChange: false,
         });
+
+        // Display the buttons
+        new $.fn.dataTable.Buttons( table, [
+            {
+                text: 'Insert',
+                action: function ( e, dt, node, config ) {
+                    dt.ajax.reload();
+                }
+            },
+            {
+                text: 'Edit',
+                action: function ( e, dt, node, config ) {
+                    dt.ajax.reload();
+                }
+            }
+        ] );
+
+        table.buttons().container()
+            .prependTo( $('div.fg-toolbar:eq(0)', table.table().container() ) );
     });
 </script>
 @endpush
